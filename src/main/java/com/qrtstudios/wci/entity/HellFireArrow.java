@@ -16,8 +16,6 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
-import static com.qrtstudios.wci.items.HellfireBow.isFire;
-
 public class HellFireArrow extends PersistentProjectileEntity {
 
 	protected float explosionPower = 1;
@@ -45,13 +43,7 @@ public class HellFireArrow extends PersistentProjectileEntity {
 	public void tick() {
 		super.tick();
 		if (this.world.isClient) {
-			if (this.inGround) {
-				if (this.inGroundTime % 5 == 0) {
-					this.spawnParticles(1);
-				}
-			} else if (isFire) {
-				this.spawnParticles(2);
-			}
+			this.spawnParticles(isOnFire() ? 2 : 1);
 		}
 
 	}
@@ -66,7 +58,9 @@ public class HellFireArrow extends PersistentProjectileEntity {
 	}
 
 	private void spawnParticles(int amount) {
-		this.world.addParticle(ParticleTypes.FLAME, this.getParticleX(0.5), this.getRandomBodyY(), this.getParticleZ(0.5), 1, 1, 1);
+		for(int j = 0; j < amount; ++j) {
+			this.world.addParticle(ParticleTypes.FLAME, this.getParticleX(0.5D), this.getRandomBodyY(), this.getParticleZ(0.5D), 0, 0, 0);
+		}
 	}
 
 	protected void explode() {

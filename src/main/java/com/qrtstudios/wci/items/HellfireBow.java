@@ -24,7 +24,6 @@ public class HellfireBow extends BowItem implements Vanishable {
     public static final int RANGE = 15;
 
     public static final Predicate<ItemStack> FIRE_ARROW = (stack) -> stack.isOf(WhitelistCustomItems.HELLFIRE_ARROW);
-    public static boolean isFire = false;
     public HellfireBow(Settings settings) {
         super(settings);
     }
@@ -63,7 +62,6 @@ public class HellfireBow extends BowItem implements Vanishable {
 
                         if (EnchantmentHelper.getLevel(Enchantments.FLAME, stack) > 0) {
                             persistentProjectileEntity.setOnFireFor(100);
-                            isFire = true;
                         }
 
                         stack.damage(1, playerEntity, (p) -> {
