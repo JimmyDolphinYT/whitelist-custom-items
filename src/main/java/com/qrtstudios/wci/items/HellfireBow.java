@@ -6,7 +6,9 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.BowItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Vanishable;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
@@ -17,7 +19,7 @@ import net.minecraft.world.World;
 
 import java.util.function.Predicate;
 
-public class HellfireBow extends RangedWeaponItem implements Vanishable {
+public class HellfireBow extends BowItem implements Vanishable {
     public static final int TICKS_PER_SECOND = 20;
     public static final int RANGE = 15;
 

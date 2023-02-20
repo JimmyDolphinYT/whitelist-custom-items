@@ -37,7 +37,7 @@ public class WhitelistCustomItems implements ModInitializer {
 					Registry.ENTITY_TYPE,
 					new Identifier(MODID, "helloum_arrow"),
 					FabricEntityTypeBuilder.create(SpawnGroup.MISC, (EntityType.EntityFactory<HellFireArrow>) HellFireArrow::new)
-							.dimensions(EntityDimensions.fixed(1, 2)).build()
+							.dimensions(EntityDimensions.fixed(0.5f, 0.5f)).build()
 			);
 
 	@Override
