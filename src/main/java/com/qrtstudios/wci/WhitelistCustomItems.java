@@ -9,6 +9,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
@@ -30,7 +31,7 @@ public class WhitelistCustomItems implements ModInitializer {
 	public static final Item SHADOW_SCYTHE = new ShadowScythe(ToolMaterials.DIAMOND, 9, 1, new Item.Settings().group(ItemGroup.COMBAT));
 	public static final Item NETHERITE_SHADOW_SCYTHE = new ShadowScythe(ToolMaterials.NETHERITE, 10, 1, new Item.Settings().group(ItemGroup.COMBAT));
 	public static final Item HELLFIRE_ARROW = new HellfireArrowItem(new Item.Settings().group(ItemGroup.COMBAT));
-	public static final Item HELLFIRE_BOW = new HellfireBow(new Item.Settings().group(ItemGroup.COMBAT));
+	public static final Item HELLFIRE_BOW = new HellfireBow(new Item.Settings().group(ItemGroup.COMBAT).maxDamage(Items.BOW.getMaxDamage()));
 
 	public static final EntityType<HellFireArrow> HELLOUM_ARROW =
 			Registry.register(
