@@ -7,6 +7,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
@@ -18,9 +20,10 @@ import static com.qrtstudios.wci.items.HellfireBow.isFire;
 
 public class HellFireArrow extends PersistentProjectileEntity {
 
-    private float explosionPower;
+	protected float explosionPower = 1;
+	public static final String KEY_EXPLOSION_POWER = "ExplosionPower";
 
-    public HellFireArrow(EntityType<? extends HellFireArrow> entityType, World world) {
+	public HellFireArrow(EntityType<? extends HellFireArrow> entityType, World world) {
 		super(entityType, world);
 	}
 
@@ -53,26 +56,33 @@ public class HellFireArrow extends PersistentProjectileEntity {
 
 	}
 
-	public void initFromStack(ItemStack stack) {}
+	public void initFromStack(ItemStack stack) {
+		NbtCompound nbt = stack.getNbt();
+		if (nbt == null) return;
+
+		if (nbt.contains(KEY_EXPLOSION_POWER, NbtElement.FLOAT_TYPE)) {
+			explosionPower = nbt.getFloat(KEY_EXPLOSION_POWER);
+		}
+	}
 
 	private void spawnParticles(int amount) {
 		this.world.addParticle(ParticleTypes.FLAME, this.getParticleX(0.5), this.getRandomBodyY(), this.getParticleZ(0.5), 1, 1, 1);
 	}
 
-    protected void explode(){
-        boolean canExplode = this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING);
-        if (!this.world.isClient)
-            this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(),
-                    explosionPower, canExplode, canExplode ? Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
+	protected void explode() {
+		boolean canExplode = this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING);
+		if (!this.world.isClient)
+			this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(),
+					explosionPower, canExplode, canExplode ? Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
 
-        this.discard();
-    }
+		this.discard();
+	}
 
 	@Override
 	protected void onBlockHit(BlockHitResult blockHitResult) {
 		super.onBlockHit(blockHitResult);
-        this.explode();
-    }
+		this.explode();
+	}
 
 	@Override
 	protected void onEntityHit(EntityHitResult entityHitResult) {
@@ -88,7 +98,7 @@ public class HellFireArrow extends PersistentProjectileEntity {
 				}
 			}
 
-            this.explode();
+			this.explode();
 		}
 	}
 
