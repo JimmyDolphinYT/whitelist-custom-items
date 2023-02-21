@@ -1,8 +1,6 @@
 {
-  "parent": "minecraft:item/arrow",
-  "display": {
-    "gui": {
-      "rotation": [0, 180, 0]
-    }
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "wci:item/helloum_arrow"
   }
 }
