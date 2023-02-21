@@ -24,14 +24,14 @@ public class WhitelistCustomItems implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
 
 
-	public static final Item KITANA = new Kitana(ToolMaterials.DIAMOND, 8, 1.6f, new Item.Settings().group(ItemGroup.COMBAT), 0);
-	public static final Item NETHERITE_KITANA = new Kitana(ToolMaterials.NETHERITE, 9, 1.6f, new Item.Settings().group(ItemGroup.COMBAT), 1);
+	public static final Item KITANA = new Kitana(ToolMaterials.DIAMOND, 8, 1.7f, new Item.Settings().group(ItemGroup.COMBAT), 0);
+	public static final Item NETHERITE_KITANA = new Kitana(ToolMaterials.NETHERITE, 9, 1.7f, new Item.Settings().group(ItemGroup.COMBAT), 1);
 	public static final Item MULTITOOL = new MultiTool(5, 1.2f, 6, ToolMaterials.DIAMOND, BlockTags.NEEDS_DIAMOND_TOOL , new Item.Settings().maxDamage(750).group(ItemGroup.COMBAT));
 	public static final Item NETHERITE_MULTITOOL = new MultiTool(6, 1.2f, 7, ToolMaterials.NETHERITE, BlockTags.NEEDS_DIAMOND_TOOL , new Item.Settings().maxDamage(1250).group(ItemGroup.COMBAT));
-	public static final Item SHADOW_SCYTHE = new ShadowScythe(ToolMaterials.DIAMOND, 9, 1, new Item.Settings().group(ItemGroup.COMBAT));
-	public static final Item NETHERITE_SHADOW_SCYTHE = new ShadowScythe(ToolMaterials.NETHERITE, 10, 1, new Item.Settings().group(ItemGroup.COMBAT));
+	public static final Item SHADOW_SCYTHE = new ShadowScythe(ToolMaterials.DIAMOND, 9, 1, new Item.Settings().group(ItemGroup.COMBAT).maxDamage(1000));
+	public static final Item NETHERITE_SHADOW_SCYTHE = new ShadowScythe(ToolMaterials.NETHERITE, 10, 1, new Item.Settings().group(ItemGroup.COMBAT).maxDamage(1500));
 	public static final Item HELLFIRE_ARROW = new HellfireArrowItem(new Item.Settings().group(ItemGroup.COMBAT));
-	public static final Item HELLFIRE_BOW = new HellfireBow(new Item.Settings().group(ItemGroup.COMBAT).maxDamage(Items.BOW.getMaxDamage()));
+	public static final Item HELLFIRE_BOW = new HellfireBow(new Item.Settings().group(ItemGroup.COMBAT).maxDamage(700));
 
 	public static final EntityType<HellFireArrow> HELLOUM_ARROW =
 			Registry.register(

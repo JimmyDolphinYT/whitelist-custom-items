@@ -9,6 +9,7 @@ public class ModModelPredicate {
         registerBow(WhitelistCustomItems.HELLFIRE_BOW);
     }
 
+    @SuppressWarnings("deprecation")
     private static void registerBow(Item bow) {
         FabricModelPredicateProviderRegistry.register(bow, new Identifier("pull"),
                 (stack, world, entity, seed) -> {
