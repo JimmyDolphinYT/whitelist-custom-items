@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:coal_block"
+    },
+    "X": {
+      "item": "minecraft:diamond"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    "NXX",
+    "X #",
+    "  #"
+  ],
+  "result": {
+    "item": "wci:diamond_shadow_scythe"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "wci:diamond_shadow_scythe"
+  },
+  "result": {
+    "item": "wci:netherite_shadow_scythe"
+  }
+}

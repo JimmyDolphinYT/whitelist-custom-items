@@ -8,6 +8,6 @@ public class ClientInitializer implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         EntityRendererRegistry.register(WhitelistCustomItems.HELLOUM_ARROW, HellfireArrowRenderer::new);
-
+        ModModelPredicate.registerModModels();
     }
 }

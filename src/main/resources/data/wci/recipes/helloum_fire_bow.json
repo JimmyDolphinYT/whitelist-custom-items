@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "X": {
+      "item": "minecraft:iron_bars"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    " #X",
+    "#NX",
+    " #X"
+  ],
+  "result": {
+    "item": "wci:helloum_fire_bow"
+  }
+}
